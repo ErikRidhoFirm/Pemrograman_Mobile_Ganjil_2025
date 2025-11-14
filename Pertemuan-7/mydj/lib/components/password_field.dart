@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 class PasswordField extends StatefulWidget
 {
   final void Function(String value) onChanged;  // <-- Ketika teksnya berubah
-const PasswordField({super.key, this.onChanged = _emptyFunction});
-static void _emptyFunction(String value){}
+
+  const PasswordField({super.key, this.onChanged = _emptyFunction});
+
+  static void _emptyFunction(String value){}
 
   @override
-  State<StatefulWidget> CreateState() {
+  State<StatefulWidget> createState() {
   return _PasswordFieldState();
   }
 }
 
-class _PasswordField extends State<PasswordField>
+class _PasswordFieldState extends State<PasswordField>
 {
   bool _obscure = true;
 
@@ -31,9 +33,13 @@ class _PasswordField extends State<PasswordField>
           labelText: 'Password',
           border: OutlineInputBorder(),
           suffixIcon: IconButton(
-            icon: Icon(_obscure ? Icons.visibility_off : Icons.visibility)
-          ),
+            icon: Icon(_obscure ? Icons.visibility_off : Icons.visibility),
+            onPressed: () => { 
+              _toggleVisibilityIconButton()
+            }
+          )
         ),
-    )
+        onChanged:widget.onChanged,
+    );
   }
 }
