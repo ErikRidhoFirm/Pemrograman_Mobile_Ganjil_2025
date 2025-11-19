@@ -1,7 +1,7 @@
 import 'game_object.dart';
 
 class Dino extends GameObject {
-  Dino(double x, double y) : super(x, y);
+  Dino(super.x, super.y);
   void jump() {
     print('Dino is jumping!');
   }

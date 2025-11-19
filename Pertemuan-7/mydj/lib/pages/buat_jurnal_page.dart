@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mydj/data/jurnal.dart';
 import 'package:provider/provider.dart';

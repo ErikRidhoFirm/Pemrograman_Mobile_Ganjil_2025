@@ -1,7 +1,7 @@
 import 'obstacle.dart';
 
 class Cactus extends Obstacle {
-  Cactus(double x, double y) : super(x, y);
+  Cactus(double super.x, double super.y);
   @override
   void move() {
     print('Cactus is moving to the left...');
