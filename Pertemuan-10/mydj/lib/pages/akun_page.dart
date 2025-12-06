@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mydj/components/password_field.dart';
+import 'dart:io'; // untuk exit
 
 class AkunPage extends StatefulWidget {
   const AkunPage({super.key, required this.title});
@@ -47,15 +48,51 @@ class _AkunPageState extends State<AkunPage> {
             // -------------------
             PasswordField(), // <- Tambahlan disini
             // -------------------
-
+            SizedBox(height: 20),
             SizedBox(
-              width: double.infinity, // Lebar sizedbox akan maksimal.
+              width: double.infinity,
               child: ElevatedButton(
-                // ElevatedButton sebagai child dari SizedBox. Lebarnya akan mengikuti lebar parentnya.
-                onPressed: () => {
-                  _savePassword(context),
-                }, // <-- panggil fungsi yang kita buat tadi.
-                child: Text('Simpan'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurple[400],
+                  padding: EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Perubahan sandi disimpan')),
+                  );
+                },
+                child: Text('Simpan', style: TextStyle(color: Colors.white)),
+              ),
+            ),
+
+            SizedBox(height: 20),
+            Text(
+              "Keluar",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Divider(thickness: 2),
+            SizedBox(height: 10),
+            // ===== Tombol Keluar dari Aplikasi =====
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurple[400],
+                  padding: EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                onPressed: () {
+                  exit(0);
+                },
+                child: Text(
+                  'Keluar dari Aplikasi',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
           ],
